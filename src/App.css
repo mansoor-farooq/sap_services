@@ -2,9 +2,13 @@
 
 #root {
   max-width: 1280px;
+  /* This limits your app's width */
   margin: 0 auto;
+  /* This centers the narrow box */
   padding: 2rem;
+  /* This adds a huge gap around your app */
   text-align: center;
+  /* This centers all the text */
 }
 
 .logo {
@@ -47,11 +51,12 @@
 
 }
 
-body {
-  overflow-x: hidden;
-}
-
 html,
 body {
   height: 100%;
+}
+
+body {
+  /* Optional: a good default to prevent accidental horizontal scrollbars */
+  overflow-x: hidden;
 }

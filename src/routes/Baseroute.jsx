@@ -1,19 +1,25 @@
 import { Route, Routes } from 'react-router-dom'
 import NotFoundPage from '../pages/NoPagefound'
 import Home from '../pages/Home'
-import Layout from '../components/Layout'
+
 
 export default function Baseroute() {
     return (
-        <div >
-            <Layout>
+        // <div >
+        //     <Layout>
 
-                <Routes>
-                    <Route path='/' element={<Home />} />
-                    <Route path='*' element={<NotFoundPage />} />
-                </Routes>
-            </Layout>
-        </div>
+        //         <Routes>
+        //             <Route path='/' element={<Home />} />
+        //             <Route path='*' element={<NotFoundPage />} />
+        //         </Routes>
+        //     </Layout>
+        // </div>
+
+
+        <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='*' element={<NotFoundPage />} />
+        </Routes>
 
 
     )

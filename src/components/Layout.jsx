@@ -1,29 +1,35 @@
 import Header from "./Header";
 import Footer from "./Footer";
-// export default function Layout({ children }) {
-//     return (
-//         <>
-//             <Header />
-//             <main className="min-h-screen">{children}</main>
-//             <Footerlay /> {/* Optional */}
-//         </>
-//     );
-// }// components/Layout.js
-
-// components/Layout.js
 
 
-// // // In Layout.jsx
+
 export default function Layout({ children }) {
     return (
-        <div className="relative min-h-screen pb-20"> {/* Match footer height */}
+        // <div className="flex flex-col min-h-screen">
+        //     <Header />
+        //     <main>
+        //         {children}
+        //     </main>
+        //     <footer className="absolute bottom-0 w-full">
+        //         <Footer />
+        //     </footer>
+        // </div>
+        // CHANGE 1: Use flexbox to structure the layout.
+        // - `flex`: Activates flexbox.
+        // - `flex-col`: Stacks children vertically (Header, main, Footer).
+        // - `min-h-screen`: Ensures the layout is at least the height of the screen.
+        <div className="flex flex-col min-h-screen">
             <Header />
-            <main>
+
+            {/* CHANGE 2: Add `flex-grow`. This makes the main content area expand
+                and push the footer to the bottom of the page. */}
+            <main className="flex-grow">
                 {children}
             </main>
-            <footer className="absolute bottom-0 w-full">
-                <Footer />
-            </footer>
+
+            {/* CHANGE 3: The footer no longer needs any special positioning classes.
+                It will naturally sit at the bottom after the main content. */}
+            <Footer />
         </div>
     )
 }

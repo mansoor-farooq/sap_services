@@ -1,7 +1,9 @@
 import React from 'react'
 
+
 const Home = () => {
     return (
+
         <div >
             <h1 className='bg-amber-400 hover:bg-green-700 font-bold rounded-4xl'>Developer😮</h1>
 
