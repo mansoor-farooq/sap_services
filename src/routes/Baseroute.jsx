@@ -27,8 +27,8 @@ export default function Baseroute() {
 
 // <div>
 
-//     <div className="w-screen h-screen bg-black flex items-center justify-start overflow-hidden">
-//         <h1 className="text-6xl font-extrabold text-yellow-300 animate-slide px-10 whitespace-nowrap">
+//     <div className="flex items-center justify-start w-screen h-screen overflow-hidden bg-black">
+//         <h1 className="px-10 text-6xl font-extrabold text-yellow-300 animate-slide whitespace-nowrap">
 //             MANSOOR
 //         </h1>
 //     </div>

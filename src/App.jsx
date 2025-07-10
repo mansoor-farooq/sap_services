@@ -20,14 +20,15 @@
 // export default App
 
 // src/App.jsx - CORRECTED
-import Layout from './components/Layout'
+import { BrowserRouter } from 'react-router-dom'
 import Baseroute from './routes/Baseroute'
+import './App.css'
 
 function App() {
   return (
-    <Layout>
+    <BrowserRouter>
       <Baseroute />
-    </Layout>
+    </BrowserRouter>
   )
 }
 

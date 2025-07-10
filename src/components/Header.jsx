@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import logo from '../images/mansoor.png';
 import {
     Dialog,
     // DialogPanel,
@@ -40,8 +41,8 @@ const Header = () => {
     const [hoveredItem, setHoveredItem] = useState(null);
 
     return (
-        <header className="bg-white/80 backdrop-blur-md fixed top-0 left-0 right-0 z-50 shadow-sm w-full">
-            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <header className="fixed top-0 left-0 right-0 z-50 w-full shadow-sm bg-white/80 backdrop-blur-md">
+            <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
                 <nav className="flex items-center justify-between py-4">
                     {/* Logo with animation */}
                     <motion.div
@@ -53,8 +54,8 @@ const Header = () => {
                             <span className="sr-only">Your Company</span>
                             <motion.img
                                 alt="Company Logo"
-                                src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=600"
-                                className="h-8 w-auto"
+                                src={logo}
+                                className="w-[100px] h-[60px]" // ← custom sizes
                                 whileHover={{ rotate: 10 }}
                                 transition={{ type: 'spring', stiffness: 300 }}
                             />
@@ -85,7 +86,7 @@ const Header = () => {
                                         whileTap={{ scale: 0.95 }}
                                     >
                                         <PopoverButton
-                                            className="flex items-center gap-x-1 text-sm font-semibold text-gray-900 outline-none"
+                                            className="flex items-center text-sm font-semibold text-gray-900 outline-none gap-x-1"
                                             onMouseEnter={() => setHoveredItem('product')}
                                             onMouseLeave={() => setHoveredItem(null)}
                                         >
@@ -94,7 +95,7 @@ const Header = () => {
                                                 animate={{ rotate: open ? 180 : 0 }}
                                                 transition={{ duration: 0.2 }}
                                             >
-                                                <ChevronDownIcon aria-hidden="true" className="size-5 flex-none text-gray-400" />
+                                                <ChevronDownIcon aria-hidden="true" className="flex-none text-gray-400 size-5" />
                                             </motion.div>
                                             {hoveredItem === 'product' && (
                                                 <motion.span
@@ -117,11 +118,11 @@ const Header = () => {
                                                 transition={{ duration: 0.2 }}
                                             >
                                                 <PopoverPanel
-                                                    className="absolute left-1/2 z-10 mt-3 w-screen max-w-md -translate-x-1/2"
+                                                    className="absolute z-10 w-screen max-w-md mt-3 -translate-x-1/2 left-1/2"
                                                     static
                                                 >
                                                     <motion.div
-                                                        className="overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5"
+                                                        className="overflow-hidden bg-white shadow-lg rounded-3xl ring-1 ring-gray-900/5"
                                                         initial={{ scale: 0.9 }}
                                                         animate={{ scale: 1 }}
                                                     >
@@ -129,12 +130,12 @@ const Header = () => {
                                                             {products.map((item) => (
                                                                 <motion.div
                                                                     key={item.name}
-                                                                    className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm hover:bg-gray-50"
+                                                                    className="relative flex items-center p-4 text-sm rounded-lg group gap-x-6 hover:bg-gray-50"
                                                                     whileHover={{ x: 5 }}
                                                                     transition={{ type: 'spring', stiffness: 300 }}
                                                                 >
-                                                                    <div className="flex size-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-                                                                        <item.icon aria-hidden="true" className="size-6 text-gray-600 group-hover:text-indigo-600" />
+                                                                    <div className="flex items-center justify-center flex-none rounded-lg size-11 bg-gray-50 group-hover:bg-white">
+                                                                        <item.icon aria-hidden="true" className="text-gray-600 size-6 group-hover:text-indigo-600" />
                                                                     </div>
                                                                     <div className="flex-auto">
                                                                         <a href={item.href} className="block font-semibold text-gray-900">
@@ -155,7 +156,7 @@ const Header = () => {
                                                                     whileHover={{ scale: 1.03 }}
                                                                     whileTap={{ scale: 0.97 }}
                                                                 >
-                                                                    <item.icon aria-hidden="true" className="size-5 flex-none text-gray-400" />
+                                                                    <item.icon aria-hidden="true" className="flex-none text-gray-400 size-5" />
                                                                     {item.name}
                                                                 </motion.a>
                                                             ))}
@@ -177,7 +178,7 @@ const Header = () => {
                             >
                                 <a
                                     href="#"
-                                    className="text-sm font-semibold text-gray-900 relative"
+                                    className="relative text-sm font-semibold text-gray-900"
                                     onMouseEnter={() => setHoveredItem(item.toLowerCase())}
                                     onMouseLeave={() => setHoveredItem(null)}
                                 >
@@ -200,7 +201,7 @@ const Header = () => {
                     <div className="hidden lg:flex lg:flex-1 lg:justify-end">
                         <motion.a
                             href="#"
-                            className="text-sm font-semibold text-gray-900 relative group"
+                            className="relative text-sm font-semibold text-gray-900 group"
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
                         >
@@ -254,7 +255,7 @@ const Header = () => {
                                     <img
                                         alt="Company Logo"
                                         src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=600"
-                                        className="h-8 w-auto"
+                                        className="w-auto h-8"
                                     />
                                 </motion.a>
                                 <motion.button
@@ -269,13 +270,13 @@ const Header = () => {
                                 </motion.button>
                             </div>
                             <motion.div
-                                className="px-6 pb-6 pt-2"
+                                className="px-6 pt-2 pb-6"
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 1 }}
                                 transition={{ delay: 0.2 }}
                             >
                                 <div className="-my-6 divide-y divide-gray-500/10">
-                                    <div className="space-y-2 py-6">
+                                    <div className="py-6 space-y-2">
                                         <Disclosure as="div" className="-mx-3">
                                             {({ open }) => (
                                                 <>
@@ -300,7 +301,7 @@ const Header = () => {
                                                                 <DisclosureButton
                                                                     as="a"
                                                                     href={item.href}
-                                                                    className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold text-gray-900 hover:bg-gray-50"
+                                                                    className="block py-2 pl-6 pr-3 text-sm font-semibold text-gray-900 rounded-lg hover:bg-gray-50"
                                                                 >
                                                                     {item.name}
                                                                 </DisclosureButton>
@@ -314,7 +315,7 @@ const Header = () => {
                                             <motion.a
                                                 key={item}
                                                 href="#"
-                                                className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold text-gray-900 hover:bg-gray-50"
+                                                className="block px-3 py-2 -mx-3 text-base font-semibold text-gray-900 rounded-lg hover:bg-gray-50"
                                                 whileHover={{ x: 5 }}
                                             >
                                                 {item}

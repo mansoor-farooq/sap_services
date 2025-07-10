@@ -1,14 +1,14 @@
 import React from 'react'
-
+import Layout from '../components/Layout';
 
 const Home = () => {
     return (
-
+      <Layout>
         <div >
             <h1 className='bg-amber-400 hover:bg-green-700 font-bold rounded-4xl'>Developer😮</h1>
 
         </div>
-
+        </Layout>
     )
 }
 
